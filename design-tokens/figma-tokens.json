@@ -8,6 +8,10 @@
             "secondary": {
                 "value": "#6C757D",
                 "type": "color"
+            },
+            "tertiary": {
+                "value": "#20C997",
+                "type": "color"
             }
         },
         "text": {

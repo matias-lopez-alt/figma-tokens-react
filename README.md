@@ -179,33 +179,46 @@ This will automatically rebuild tokens when `figma-tokens.json` changes.
 
 ### CI/CD Integration
 
-For CI/CD pipelines (e.g., GitHub Actions), add this workflow:
+The project includes a GitHub Actions workflow for continuous integration of design tokens. The workflow is located at `.github/workflows/tokens.yml` and performs the following validations:
 
-```yaml
-name: Build Design Tokens
+1. **Build Process**
+   - Runs on changes to `figma-tokens.json` or `build-tokens.cjs`
+   - Triggers on both push and pull requests
+   - Uses Node.js 20 with npm caching
 
-on:
-  push:
-    paths:
-      - 'design-tokens/figma-tokens.json'
-  pull_request:
-    paths:
-      - 'design-tokens/figma-tokens.json'
+2. **Validation Steps**
+   - **Build Verification**
+     - Runs the token build process
+     - Ensures all output files are generated
+     - Checks for uncommitted build file changes
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-      - run: npm install
-      - run: npm run build:tokens
-      - name: Check for changes
-        run: |
-          git diff --exit-code design-tokens/build/ || (echo "Token build files are out of date. Please run 'npm run build:tokens' locally and commit the changes." && exit 1)
-```
+   - **Format Validation**
+     - SCSS syntax validation
+     - JavaScript syntax checking
+     - TypeScript type validation
+
+3. **Workflow Triggers**
+   ```yaml
+   on:
+     push:
+       paths:
+         - 'design-tokens/figma-tokens.json'
+         - 'design-tokens/build-tokens.cjs'
+     pull_request:
+       paths:
+         - 'design-tokens/figma-tokens.json'
+         - 'design-tokens/build-tokens.cjs'
+   ```
+
+4. **Local Testing**
+   To test the workflow locally before pushing:
+   ```bash
+   # Install act (GitHub Actions local runner)
+   brew install act
+
+   # Run the workflow
+   act push -W .github/workflows/tokens.yml
+   ```
 
 ## 🎨 Token Pipeline Customization
 
