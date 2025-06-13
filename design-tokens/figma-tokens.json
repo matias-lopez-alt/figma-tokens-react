@@ -1,0 +1,114 @@
+{
+    "color": {
+        "brand": {
+            "primary": {
+                "value": "#007AFF",
+                "type": "color"
+            },
+            "secondary": {
+                "value": "#6C757D",
+                "type": "color"
+            }
+        },
+        "text": {
+            "default": {
+                "value": "#212529",
+                "type": "color"
+            },
+            "light": {
+                "value": "#6C757D",
+                "type": "color"
+            }
+        },
+        "feedback": {
+            "success": {
+                "value": "#28A745",
+                "type": "color"
+            },
+            "error": {
+                "value": "#DC3545",
+                "type": "color"
+            }
+        }
+    },
+    "spacing": {
+        "unit": {
+            "value": "4",
+            "type": "spacing"
+        },
+        "xxs": {
+            "value": "{spacing.unit.value}px",
+            "type": "spacing"
+        },
+        "xs": {
+            "value": "{spacing.unit.value} * 2px",
+            "type": "spacing"
+        },
+        "sm": {
+            "value": "{spacing.unit.value} * 4px",
+            "type": "spacing"
+        },
+        "md": {
+            "value": "{spacing.unit.value} * 6px",
+            "type": "spacing"
+        },
+        "lg": {
+            "value": "{spacing.unit.value} * 8px",
+            "type": "spacing"
+        }
+    },
+    "font": {
+        "family": {
+            "body": {
+                "value": "Inter, sans-serif",
+                "type": "fontFamily"
+            },
+            "heading": {
+                "value": "Montserrat, sans-serif",
+                "type": "fontFamily"
+            }
+        },
+        "size": {
+            "base": {
+                "value": "16px",
+                "type": "fontSize"
+            },
+            "sm": {
+                "value": "14px",
+                "type": "fontSize"
+            },
+            "lg": {
+                "value": "24px",
+                "type": "fontSize"
+            }
+        },
+        "weight": {
+            "regular": {
+                "value": "400",
+                "type": "fontWeight"
+            },
+            "medium": {
+                "value": "500",
+                "type": "fontWeight"
+            },
+            "bold": {
+                "value": "700",
+                "type": "fontWeight"
+            }
+        }
+    },
+    "breakpoint": {
+        "sm": {
+            "value": "640px",
+            "type": "dimension"
+        },
+        "md": {
+            "value": "768px",
+            "type": "dimension"
+        },
+        "lg": {
+            "value": "1024px",
+            "type": "dimension"
+        }
+    }
+}
