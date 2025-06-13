@@ -36,6 +36,10 @@
             "info": {
                 "value": "#17A2B8",
                 "type": "color"
+            },
+            "neutral": {
+                "value": "#6C757D",
+                "type": "color"
             }
         }
     },
