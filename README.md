@@ -148,6 +148,135 @@ const breakpoint = tokens.breakpoint.md.value;
 - `npm test` - Run tests
 - `npm run build` - Build for production
 
+## 🔄 Automation
+
+### Pre-commit Hook
+
+You can automate the token build process using Husky and lint-staged. Here's how to set it up:
+
+1. Install required dependencies:
+```bash
+npm install --save-dev husky lint-staged
+```
+
+2. Add the following to your `package.json`:
+```json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "design-tokens/figma-tokens.json": [
+      "npm run build:tokens"
+    ]
+  }
+}
+```
+
+This will automatically rebuild tokens when `figma-tokens.json` changes.
+
+### CI/CD Integration
+
+For CI/CD pipelines (e.g., GitHub Actions), add this workflow:
+
+```yaml
+name: Build Design Tokens
+
+on:
+  push:
+    paths:
+      - 'design-tokens/figma-tokens.json'
+  pull_request:
+    paths:
+      - 'design-tokens/figma-tokens.json'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: npm run build:tokens
+      - name: Check for changes
+        run: |
+          git diff --exit-code design-tokens/build/ || (echo "Token build files are out of date. Please run 'npm run build:tokens' locally and commit the changes." && exit 1)
+```
+
+## 🎨 Token Pipeline Customization
+
+### Custom Transformations
+
+You can add custom transformations to the build process by modifying `build-tokens.cjs`:
+
+```javascript
+StyleDictionary.registerTransform({
+  name: 'custom/transform',
+  type: 'value',
+  matcher: (token) => token.attributes.category === 'custom',
+  transformer: (token) => {
+    // Your custom transformation logic
+    return transformedValue;
+  }
+});
+```
+
+### Custom Formats
+
+Add custom output formats:
+
+```javascript
+StyleDictionary.registerFormat({
+  name: 'custom/format',
+  formatter: (dictionary, config) => {
+    // Your custom format logic
+    return formattedOutput;
+  }
+});
+```
+
+### Token Categories
+
+Extend the token structure in `figma-tokens.json`:
+
+```json
+{
+  "custom": {
+    "category": {
+      "token": {
+        "value": "value",
+        "type": "customType"
+      }
+    }
+  }
+}
+```
+
+### Platform-Specific Customization
+
+Customize output for specific platforms:
+
+```javascript
+const StyleDictionary = require('style-dictionary');
+
+StyleDictionary.extend({
+  platforms: {
+    custom: {
+      transformGroup: 'custom',
+      buildPath: 'build/custom/',
+      files: [{
+        destination: 'custom-tokens.js',
+        format: 'custom/format'
+      }]
+    }
+  }
+});
+```
+
 ## 📝 License
 
 MIT
