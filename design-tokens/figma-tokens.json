@@ -28,6 +28,14 @@
             "error": {
                 "value": "#DC3545",
                 "type": "color"
+            },
+            "warning": {
+                "value": "#FFC107",
+                "type": "color"
+            },
+            "info": {
+                "value": "#17A2B8",
+                "type": "color"
             }
         }
     },
