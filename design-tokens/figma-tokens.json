@@ -6,11 +6,11 @@
                 "type": "color"
             },
             "secondary": {
-                "value": "#6C757D",
+                "value": "#5856D6",
                 "type": "color"
             },
             "tertiary": {
-                "value": "#20C997",
+                "value": "#FF2D55",
                 "type": "color"
             },
             "quaternary": {
@@ -31,6 +31,10 @@
             },
             "light": {
                 "value": "#F8F9FA",
+                "type": "color"
+            },
+            "dark": {
+                "value": "#212529",
                 "type": "color"
             }
         },
@@ -77,30 +81,34 @@
             "type": "spacing"
         },
         "xs": {
-            "value": "{spacing.unit.value} * 2px",
+            "value": "4px",
             "type": "spacing"
         },
         "sm": {
-            "value": "{spacing.unit.value} * 4px",
+            "value": "8px",
             "type": "spacing"
         },
         "md": {
-            "value": "{spacing.unit.value} * 6px",
+            "value": "16px",
             "type": "spacing"
         },
         "lg": {
-            "value": "{spacing.unit.value} * 8px",
+            "value": "24px",
+            "type": "spacing"
+        },
+        "xl": {
+            "value": "32px",
             "type": "spacing"
         }
     },
     "font": {
         "family": {
             "body": {
-                "value": "Inter, sans-serif",
+                "value": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
                 "type": "fontFamily"
             },
             "heading": {
-                "value": "Montserrat, sans-serif",
+                "value": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
                 "type": "fontFamily"
             }
         },
@@ -114,7 +122,11 @@
                 "type": "fontSize"
             },
             "lg": {
-                "value": "24px",
+                "value": "18px",
+                "type": "fontSize"
+            },
+            "xl": {
+                "value": "20px",
                 "type": "fontSize"
             }
         },
@@ -135,16 +147,20 @@
     },
     "breakpoint": {
         "sm": {
-            "value": "640px",
-            "type": "dimension"
+            "value": "576px",
+            "type": "breakpoint"
         },
         "md": {
             "value": "768px",
-            "type": "dimension"
+            "type": "breakpoint"
         },
         "lg": {
-            "value": "1024px",
-            "type": "dimension"
+            "value": "992px",
+            "type": "breakpoint"
+        },
+        "xl": {
+            "value": "1200px",
+            "type": "breakpoint"
         }
     }
 }
