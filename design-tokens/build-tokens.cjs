@@ -56,6 +56,20 @@ import('style-dictionary').then((sdModule) => {
                         }
                     }
                 ]
+            },
+            // TypeScript definitions output
+            typescript: {
+                transformGroup: 'js',
+                buildPath: buildPath,
+                files: [
+                    {
+                        destination: 'tokens.d.ts',
+                        format: 'typescript/module-declarations',
+                        options: {
+                            showFileHeader: true
+                        }
+                    }
+                ]
             }
         }
     });
