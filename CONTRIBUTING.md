@@ -2,6 +2,12 @@
 
 This document outlines the development process, including how to work with design tokens and the CI/CD workflow.
 
+## System Requirements
+
+- Node.js >= 20.0.0 (LTS version)
+- npm >= 10.0.0
+- Style Dictionary v4.3.0
+
 ## Design Tokens Workflow
 
 ### Local Development
@@ -135,6 +141,56 @@ const spacing = tokens.spacing.md.value;
    - Be descriptive
    - Reference token changes
    - Follow conventional commits
+
+## Future Upgrade Plan
+
+### Style Dictionary v5 Upgrade
+
+The project currently uses Style Dictionary v4.3.0. Here's the plan for upgrading to v5:
+
+1. **Prerequisites**
+   - Node.js >= 22.0.0
+   - Update CI/CD environments
+   - Team readiness for breaking changes
+
+2. **Breaking Changes to Address**
+   - ESM-only modules
+   - Updated format names
+   - Changed transform groups
+   - New platform configuration
+
+3. **Migration Steps**
+   ```bash
+   # 1. Update Node.js
+   nvm install 22
+   nvm use 22
+
+   # 2. Update Style Dictionary
+   npm install style-dictionary@5
+
+   # 3. Update build script
+   # - Convert to ESM
+   # - Update format names
+   # - Update transform groups
+
+   # 4. Test locally
+   npm run build:tokens
+
+   # 5. Update CI/CD
+   # - Update Node.js version
+   # - Test workflow
+   ```
+
+4. **Testing Strategy**
+   - Local testing
+   - CI/CD validation
+   - Component testing
+   - Build verification
+
+5. **Rollback Plan**
+   - Keep v4.3.0 in package-lock.json
+   - Document rollback steps
+   - Test rollback process
 
 ## Need Help?
 

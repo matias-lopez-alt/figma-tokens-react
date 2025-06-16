@@ -2,6 +2,12 @@
 
 A React application that demonstrates the use of design tokens generated from Figma. This project includes a complete CI/CD pipeline for token validation and automatic build processes.
 
+## Requirements
+
+- Node.js >= 20.0.0 (LTS version)
+- npm >= 10.0.0
+- Style Dictionary v4.3.0
+
 ## Features
 
 - Design tokens from Figma
@@ -67,6 +73,16 @@ See [Contributing Guide](./CONTRIBUTING.md) for detailed information about the d
 - `npm run build:tokens` - Build design tokens
 - `npm test` - Run tests
 - `npm run lint` - Run linter
+
+## Version Compatibility
+
+This project uses specific versions of key dependencies:
+- Style Dictionary: v4.3.0
+- Node.js: >= 20.0.0
+- React: ^18.2.0
+- TypeScript: ^4.9.5
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the upgrade plan to Style Dictionary v5.
 
 ## License
 
