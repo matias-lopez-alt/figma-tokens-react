@@ -77,7 +77,7 @@
             "type": "spacing"
         },
         "xxs": {
-            "value": "{spacing.unit.value}px",
+            "value": "{spacing.unit}px",
             "type": "spacing"
         },
         "xs": {
