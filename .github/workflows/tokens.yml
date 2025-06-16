@@ -12,7 +12,11 @@ on:
 
 jobs:
   validate-tokens:
+    name: Design Tokens Validation
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://github.com/${{ github.repository }}/actions
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -44,4 +48,26 @@ jobs:
 
       - name: Validate TypeScript
         run: |
-          ./node_modules/.bin/tsc --noEmit design-tokens/build/tokens.d.ts 
+          ./node_modules/.bin/tsc --noEmit design-tokens/build/tokens.d.ts
+
+      - name: Create Status Check
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pr = context.payload.pull_request;
+            
+            await github.rest.checks.create({
+              owner,
+              repo,
+              name: 'Design Tokens Validation',
+              head_sha: pr.head.sha,
+              status: 'completed',
+              conclusion: 'success',
+              output: {
+                title: 'All validations passed',
+                summary: '✅ SCSS validation passed\n✅ JavaScript validation passed\n✅ TypeScript validation passed\n✅ Build files are up to date',
+                text: 'The design tokens have been successfully validated and all checks have passed.'
+              }
+            }); 
