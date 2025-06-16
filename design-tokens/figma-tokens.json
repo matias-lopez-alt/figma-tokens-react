@@ -28,6 +28,10 @@
             "muted": {
                 "value": "#6C757D",
                 "type": "color"
+            },
+            "light": {
+                "value": "#F8F9FA",
+                "type": "color"
             }
         },
         "text": {
