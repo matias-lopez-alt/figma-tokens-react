@@ -20,6 +20,10 @@
             "accent": {
                 "value": "#FD7E14",
                 "type": "color"
+            },
+            "highlight": {
+                "value": "#E83E8C",
+                "type": "color"
             }
         },
         "text": {
