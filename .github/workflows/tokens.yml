@@ -35,10 +35,8 @@ jobs:
 
       - name: Validate SCSS
         run: |
-          if ! command -v sass &> /dev/null; then
-            npm install -g sass
-          fi
-          sass --check design-tokens/build/variables.scss
+          npx sass design-tokens/build/variables.scss temp.css
+          rm temp.css
 
       - name: Validate JavaScript
         run: |
