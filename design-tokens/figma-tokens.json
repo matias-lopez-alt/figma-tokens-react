@@ -12,6 +12,14 @@
             "tertiary": {
                 "value": "#20C997",
                 "type": "color"
+            },
+            "quaternary": {
+                "value": "#6F42C1",
+                "type": "color"
+            },
+            "accent": {
+                "value": "#FD7E14",
+                "type": "color"
             }
         },
         "text": {
