@@ -44,4 +44,4 @@ jobs:
 
       - name: Validate TypeScript
         run: |
-          npx tsc --noEmit design-tokens/build/tokens.d.ts 
+          ./node_modules/.bin/tsc --noEmit design-tokens/build/tokens.d.ts 
