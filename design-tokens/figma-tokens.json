@@ -24,6 +24,10 @@
             "highlight": {
                 "value": "#E83E8C",
                 "type": "color"
+            },
+            "muted": {
+                "value": "#6C757D",
+                "type": "color"
             }
         },
         "text": {
